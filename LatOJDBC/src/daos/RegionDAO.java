@@ -54,12 +54,12 @@ public class RegionDAO {
         String query = "SELECT * FROM REGIONS WHERE REGION_ID=" + id;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            ResultSet resulSet = preparedStatement.executeQuery();
-            while (resulSet.next()) {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
                 //Region r = new Region();
 //                r.setId(resulSet.getInt(1));
 //                r.setName(resulSet.getString(2));
-                listRegion.add(new Region(resulSet.getInt(1), resulSet.getString(2)));
+                listRegion.add(new Region(resultSet.getInt(1), resultSet.getString(2)));
             }
         } catch (Exception e) {
             e.getStackTrace();
@@ -78,9 +78,9 @@ public class RegionDAO {
         }
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            ResultSet resulSet = preparedStatement.executeQuery();
-            while (resulSet.next()) {
-                listRegion.add(new Region(resulSet.getInt(1), resulSet.getString(2)));
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                listRegion.add(new Region(resultSet.getInt(1), resultSet.getString(2)));
             }
         } catch (Exception e) {
             e.getStackTrace();
