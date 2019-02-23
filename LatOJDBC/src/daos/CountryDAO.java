@@ -44,7 +44,6 @@ public class CountryDAO {
         }
         return listCountry;
     }
-  
     
     public boolean save(Country c, boolean isInsert) {
         boolean result = false;
@@ -63,20 +62,7 @@ public class CountryDAO {
         }
         return result;
     }
+  
     
     
-    public boolean delete(int id){
-        boolean result = false;
-        String query = "DELETE FROM COUNTRIES WHERE COUNTRY_ID = ?";
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);            
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            result = true;
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-        
-        return result;
-    }
 }
