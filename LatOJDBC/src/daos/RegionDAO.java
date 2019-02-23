@@ -118,6 +118,7 @@ public class RegionDAO {
         return result;
     }
 
+<<<<<<< HEAD
 //    private boolean search(String id) {
 //        boolean result = false;
 //        String query = "select * from regions where region_id like'%" + id + "%' or region_name like'%" + id + "'%";
@@ -132,6 +133,23 @@ public class RegionDAO {
 //        }
 //        return result;
 //    }
+=======
+    private boolean search(String id) {
+        boolean result = false;
+        String query = "select * from regions where region_id like'%" + id + "%' or region_name like'%" + id + "'%";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+//            ResultSet resultSet = 
+//            preparedStatement.setString(1, r.getName());
+                    //            preparedStatement.setInt(2, r.getId());
+                    //            preparedStatement.executeQuery();
+                    result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+>>>>>>> eb261c3549411e4cc039d2045be8ad7d40b49b2f
 
     public boolean delete(int id) {
         boolean isDelete=false;
