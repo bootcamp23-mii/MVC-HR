@@ -44,5 +44,51 @@ public class EmployeeDAO {
         }
         return listEmployee;
     }
+  
+    /**
+     * Method yang berfungsi untuk melakukan insert dan update data dari table EMPLOYEES
+     * @param e Berisi data dari object Employee
+     * @param isInsert <p>True: method akan digunakan untuk insert data.<p>False: method akan digunakan untuk update data.
+     * @return <p>True: method berhasil dijalankan.<p>False: method gagal dijalankan.
+     */
+    public boolean save(Employee e, boolean isInsert) {
+        boolean result = false;
+        String query = "";
+        if (isInsert) {
+            query = "INSERT INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,DEPARTMENT_ID) VALUES("+e.getId()+","+ e.getFirst_name()+","+ e.getLast_name()+","+ e.getEmail()+","+e.getPhone_number()+","+e.getHire_date()+","+e.getJob_id()+","+e.getSalary()+","+e.getCommission_pct()+","+e.getManager_id()+","+e.getDepartment_id()+")";
+        } else {
+            query = "UPDATE EMPLOYEES SET FIRST_NAME="+e.getFirst_name()+",LAST_NAME="+e.getLast_name()+
+                    ",EMAIL="+e.getEmail()+",PHONE_NUMBER="+e.getPhone_number()+",HIRE_DATE="+e.getHire_date()+",JOB_ID="+e.getJob_id()+
+            ",SALARY="+e.getSalary()+",COMMISSION_PCT="+e.getCommission_pct()+",MANAGER_ID="+e.getManager_id()+",DEPARTMENT_ID="+e.getDepartment_id()+" WHERE ID="+e.getId();
+        }
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.executeQuery();
+            result = true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+    
+    /**
+     * Method yang berfungsi untuk melakukan delete data dari table EMPLOYEES
+     * @param id ID employee yang akan dihapus
+     * @return <p>True: method berhasil dijalankan.<p>False: method gagal dijalankan.
+     */
+    public boolean delete(int id){
+        boolean result = false;
+        String query = "DELETE FROM EMPLOYEES WHERE REGION_ID = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);            
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            result = true;
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        
+        return result;
+    }
     
 }
