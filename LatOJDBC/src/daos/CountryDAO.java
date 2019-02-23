@@ -63,6 +63,19 @@ public class CountryDAO {
         return result;
     }
   
-    
+    public boolean delete(int country_id){
+        boolean result = false;
+        String query = "DELETE FROM COUNTRIES WHERE COUNTRY_ID = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);            
+            preparedStatement.setInt(1, country_id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            result = true;
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        
+        return result;
+    }
     
 }
