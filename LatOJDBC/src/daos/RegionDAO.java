@@ -125,8 +125,8 @@ public class RegionDAO {
         String query = "select * from regions where region_id like'%" + id + "%' or region_name like'%" + id + "'%";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            ResultSet resultSet
-                    = //            preparedStatement.setString(1, r.getName());
+//            ResultSet resultSet = 
+//            preparedStatement.setString(1, r.getName());
                     //            preparedStatement.setInt(2, r.getId());
                     //            preparedStatement.executeQuery();
                     result = true;
