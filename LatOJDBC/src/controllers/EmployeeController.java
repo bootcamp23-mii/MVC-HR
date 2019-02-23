@@ -21,7 +21,7 @@ public class EmployeeController {
         EmployeeDAO employeeDAO = new EmployeeDAO(connection);
     }
     
-    public String getDataController(String id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, int commission_pict, int manager_id, int department_id){
+    public String getDataController(int id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, int commission_pict, int manager_id, int department_id){
         String result ="";
         if (edao.getData(new Employee(Integer.parseInt(id), first_name, last_name, email, phone_number, hire_date, job_id, Integer.parseInt(salary), Integer.parseInt(commission_pict), Integer.parseInt(manager_id), Integer.parseInt(department_id)), true)) {
             result ="Data berhasil di lihat";
