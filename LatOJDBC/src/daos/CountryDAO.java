@@ -14,7 +14,7 @@ import models.Country;
 
 /**
  *
- * @author USER
+ * @author gerydanu
  */
 public class CountryDAO {
     
@@ -24,6 +24,12 @@ public class CountryDAO {
         this.connection = connection;
     }
     
+    /**
+     * 
+     * @param keyword
+     * @param isGetById
+     * @return 
+     */
     public List<Country> getData(Object keyword, boolean isGetById) {
         List<Country> listCountry = new ArrayList<Country>();
         String query = "";
@@ -45,6 +51,12 @@ public class CountryDAO {
         return listCountry;
     }
     
+    /**
+     * 
+     * @param c
+     * @param isInsert
+     * @return 
+     */
     public boolean save(Country c, boolean isInsert) {
         boolean result = false;
         String query = "";
@@ -63,6 +75,11 @@ public class CountryDAO {
         return result;
     }
   
+    /**
+     * 
+     * @param country_id
+     * @return 
+     */
     public boolean delete(int country_id){
         boolean result = false;
         String query = "DELETE FROM COUNTRIES WHERE COUNTRY_ID = ?";
