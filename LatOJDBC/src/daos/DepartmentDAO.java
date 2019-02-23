@@ -62,10 +62,23 @@ public class DepartmentDAO {
             preparedStatement.executeQuery();
             result = true;
         } catch (Exception e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
         return result;
-
+    }
+    
+    public boolean delete(int id){
+        boolean isDelete=false;
+        String query="DELETE FROM DEPARTMENTS WHERE DEPARTMENT_ID="+id;
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(query);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            isDelete=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isDelete;
+    
     }
 
 }
