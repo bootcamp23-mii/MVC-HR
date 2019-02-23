@@ -7,7 +7,7 @@ package controllers;
 
 /**
  *
- * @author USER
+ * @author gerydanu
  */
 public class CountryController {
     
