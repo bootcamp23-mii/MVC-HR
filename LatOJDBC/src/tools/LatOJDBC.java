@@ -29,7 +29,7 @@ public class LatOJDBC {
 //        r.setId(5);
 //        r.setName("Jauh seklai");
 //        rdao.insert(r);
-        System.out.println(rdao.update(r));
+//        System.out.println(rdao.update(r));
 //        for (Region region : rdao.getAll()) {
 //            System.out.println("ID      : " + region.getId());
 //            System.out.println("Name    : " + region.getName());
