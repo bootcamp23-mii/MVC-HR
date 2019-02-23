@@ -1,8 +1,9 @@
 
-<<<<<<< HEAD
+
 import daos.DepartmentDAO;
 import daos.RegionDAO;
 import models.Region;
+import tools.DBConnection;
 
 /**
  *
@@ -36,5 +37,4 @@ public class LatOJDBC {
         }
     }
 }
-=======
->>>>>>> eb261c3549411e4cc039d2045be8ad7d40b49b2f
+
