@@ -78,7 +78,7 @@ public class EmployeeDAO {
      */
     public boolean delete(int id){
         boolean result = false;
-        String query = "DELETE FROM EMPLOYEES WHERE REGION_ID = ?";
+        String query = "DELETE FROM EMPLOYEES WHERE ID = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);            
             preparedStatement.setInt(1, id);
