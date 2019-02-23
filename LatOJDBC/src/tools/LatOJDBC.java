@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 import daos.DepartmentDAO;
@@ -38,3 +39,6 @@ public class LatOJDBC {
     }
 }
 
+=======
+
+>>>>>>> master
