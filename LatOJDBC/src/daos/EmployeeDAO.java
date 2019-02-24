@@ -24,15 +24,25 @@ public class EmployeeDAO {
         this.connection = connection;
     }
     
+    /**
+     * 
+     * @param keyword
+     * @param isGetById
+     * @return 
+     */
     public List<Employee> getData(Object keyword, boolean isGetById) {
         List<Employee> listEmployee = new ArrayList<Employee>();
         String query = "";
         if (isGetById) {
             query = "SELECT * FROM Employees WHERE EMPLOYEE_ID = " + keyword;
         } else {
-            query = "SELECT * FROM Employees WHERE EMPLOYEE_ID like '%" + keyword + "%' or FIRST_NAME like '%" + keyword + "%'";
+            query = "SELECT * FROM Employees WHERE EMPLOYEE_ID like '%" + keyword +
+                    "%' or FIRST_NAME like '%" + keyword + "%' or LAST_NAME like '%" + keyword + 
+                    "%' or EMAIL like '%" + keyword + "%' or PHONE_NUMBER like '%" + keyword + 
+                    "%' or HIRE_DATE like '%" + keyword + "%' or JOB_ID like '%" + keyword + 
+                    "%' or SALARY like '%" + keyword + "%' or COMMISSION_PCT like '%" + keyword + 
+                    "%' or MANAGER_ID like '%" + keyword + "%' or DEPARTMENT_ID like '%" + keyword+"%'";
         }
-
         try {
             PreparedStatement prepareStatment = connection.prepareStatement(query);
             ResultSet resultSet = prepareStatment.executeQuery();
@@ -55,11 +65,11 @@ public class EmployeeDAO {
         boolean result = false;
         String query = "";
         if (isInsert) {
-            query = "INSERT INTO EMPLOYEES(ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,DEPARTMENT_ID) VALUES("+e.getId()+","+ e.getFirst_name()+","+ e.getLast_name()+","+ e.getEmail()+","+e.getPhone_number()+","+e.getHire_date()+","+e.getJob_id()+","+e.getSalary()+","+e.getCommission_pct()+","+e.getManager_id()+","+e.getDepartment_id()+")";
+            query = "INSERT INTO EMPLOYEES(EMPLOYEE_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,DEPARTMENT_ID) VALUES("+e.getEmployeeId()+","+ e.getFirst_name()+","+ e.getLast_name()+","+ e.getEmail()+","+e.getPhone_number()+","+e.getHire_date()+","+e.getJob_id()+","+e.getSalary()+","+e.getCommission_pct()+","+e.getManager_id()+","+e.getDepartment_id()+")";
         } else {
             query = "UPDATE EMPLOYEES SET FIRST_NAME="+e.getFirst_name()+",LAST_NAME="+e.getLast_name()+
                     ",EMAIL="+e.getEmail()+",PHONE_NUMBER="+e.getPhone_number()+",HIRE_DATE="+e.getHire_date()+",JOB_ID="+e.getJob_id()+
-            ",SALARY="+e.getSalary()+",COMMISSION_PCT="+e.getCommission_pct()+",MANAGER_ID="+e.getManager_id()+",DEPARTMENT_ID="+e.getDepartment_id()+" WHERE ID="+e.getId();
+            ",SALARY="+e.getSalary()+",COMMISSION_PCT="+e.getCommission_pct()+",MANAGER_ID="+e.getManager_id()+",DEPARTMENT_ID="+e.getDepartment_id()+" WHERE EMPLOYEE_ID="+e.getEmployeeId();
         }
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -78,7 +88,7 @@ public class EmployeeDAO {
      */
     public boolean delete(int id){
         boolean result = false;
-        String query = "DELETE FROM EMPLOYEES WHERE REGION_ID = ?";
+        String query = "DELETE FROM EMPLOYEES WHERE EMPLOYEE_ID = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);            
             preparedStatement.setInt(1, id);
