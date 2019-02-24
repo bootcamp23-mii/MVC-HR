@@ -27,22 +27,24 @@ public class HRView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jPanelMain = new javax.swing.JPanel();
+        jIFEmployee = new javax.swing.JInternalFrame();
+        jPEmployeeMain = new javax.swing.JPanel();
+        jPEmployeeMainNorth = new javax.swing.JPanel();
+        jLEmployeeTitle = new javax.swing.JLabel();
+        jPEmployeeMainWest = new javax.swing.JPanel();
+        jLEmployeeEmployeeID = new javax.swing.JLabel();
+        jLEmployeeFirstName = new javax.swing.JLabel();
+        jLEmployeeLastName = new javax.swing.JLabel();
+        jLEmployeeEmail = new javax.swing.JLabel();
+        jLEmployeePhoneNumber = new javax.swing.JLabel();
+        jLEmployeeHireDate = new javax.swing.JLabel();
+        jLEmployeeJobID = new javax.swing.JLabel();
+        jLEmployeeSalary = new javax.swing.JLabel();
+        jLEmployeeCommissionPct = new javax.swing.JLabel();
+        jLEmployeeManagerID = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jPEmployeeMainCenter = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -55,13 +57,9 @@ public class HRView extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
+        jBEmployeeInsert = new javax.swing.JButton();
+        jBEmployeeUpdate = new javax.swing.JButton();
+        jPEmployeeMainSouth = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -70,113 +68,112 @@ public class HRView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
+        jPanelMain.setLayout(new javax.swing.OverlayLayout(jPanelMain));
 
-        jInternalFrame1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jInternalFrame1.setClosable(true);
-        jInternalFrame1.setMinimumSize(new java.awt.Dimension(200, 200));
-        jInternalFrame1.setNormalBounds(new java.awt.Rectangle(0, 0, 200, 200));
-        jInternalFrame1.setVisible(false);
+        jIFEmployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jIFEmployee.setClosable(true);
+        jIFEmployee.setMinimumSize(new java.awt.Dimension(200, 200));
+        jIFEmployee.setNormalBounds(new java.awt.Rectangle(0, 0, 200, 200));
+        jIFEmployee.setVisible(false);
 
-        jPanel2.setLayout(new java.awt.BorderLayout(1, 1));
+        jPEmployeeMain.setLayout(new java.awt.BorderLayout(1, 1));
 
-        jPanel3.setLayout(new java.awt.GridLayout(12, 1));
+        jLEmployeeTitle.setText("EMPLOYEES");
+        jPEmployeeMainNorth.add(jLEmployeeTitle);
 
-        jLabel2.setText("ID");
-        jPanel3.add(jLabel2);
+        jPEmployeeMain.add(jPEmployeeMainNorth, java.awt.BorderLayout.PAGE_START);
 
-        jLabel3.setText("First Name");
-        jPanel3.add(jLabel3);
+        jPEmployeeMainWest.setLayout(new java.awt.GridLayout(15, 1));
 
-        jLabel4.setText("Last Name");
-        jPanel3.add(jLabel4);
+        jLEmployeeEmployeeID.setText("Employee ID");
+        jPEmployeeMainWest.add(jLEmployeeEmployeeID);
 
-        jLabel5.setText("Email");
-        jPanel3.add(jLabel5);
+        jLEmployeeFirstName.setText("First Name");
+        jPEmployeeMainWest.add(jLEmployeeFirstName);
 
-        jLabel6.setText("Phone Number");
-        jPanel3.add(jLabel6);
+        jLEmployeeLastName.setText("Last Name");
+        jPEmployeeMainWest.add(jLEmployeeLastName);
 
-        jLabel7.setText("Hire Date");
-        jPanel3.add(jLabel7);
+        jLEmployeeEmail.setText("Email");
+        jPEmployeeMainWest.add(jLEmployeeEmail);
 
-        jLabel8.setText("Job Id");
-        jPanel3.add(jLabel8);
+        jLEmployeePhoneNumber.setText("Phone Number");
+        jPEmployeeMainWest.add(jLEmployeePhoneNumber);
 
-        jLabel9.setText("Salary");
-        jPanel3.add(jLabel9);
+        jLEmployeeHireDate.setText("Hire Date");
+        jPEmployeeMainWest.add(jLEmployeeHireDate);
 
-        jLabel10.setText("Commission Pct");
-        jPanel3.add(jLabel10);
+        jLEmployeeJobID.setText("Job Id");
+        jPEmployeeMainWest.add(jLEmployeeJobID);
 
-        jLabel11.setText("Manager Id");
-        jPanel3.add(jLabel11);
+        jLEmployeeSalary.setText("Salary");
+        jPEmployeeMainWest.add(jLEmployeeSalary);
+
+        jLEmployeeCommissionPct.setText("Commission Pct");
+        jPEmployeeMainWest.add(jLEmployeeCommissionPct);
+
+        jLEmployeeManagerID.setText("Manager Id");
+        jPEmployeeMainWest.add(jLEmployeeManagerID);
 
         jLabel12.setText("Department Id");
-        jPanel3.add(jLabel12);
+        jPEmployeeMainWest.add(jLabel12);
 
-        jPanel2.add(jPanel3, java.awt.BorderLayout.LINE_START);
+        jPEmployeeMain.add(jPEmployeeMainWest, java.awt.BorderLayout.LINE_START);
 
-        jPanel4.setLayout(new java.awt.GridLayout(12, 1));
+        jPEmployeeMainCenter.setLayout(new java.awt.GridLayout(15, 1));
 
         jTextField1.setText("jTextField1");
-        jPanel4.add(jTextField1);
+        jPEmployeeMainCenter.add(jTextField1);
 
         jTextField2.setText("jTextField2");
-        jPanel4.add(jTextField2);
+        jPEmployeeMainCenter.add(jTextField2);
 
         jTextField3.setText("jTextField3");
-        jPanel4.add(jTextField3);
+        jPEmployeeMainCenter.add(jTextField3);
 
         jTextField4.setText("jTextField4");
-        jPanel4.add(jTextField4);
+        jPEmployeeMainCenter.add(jTextField4);
 
         jTextField5.setText("jTextField5");
-        jPanel4.add(jTextField5);
+        jPEmployeeMainCenter.add(jTextField5);
 
         jTextField6.setText("jTextField6");
-        jPanel4.add(jTextField6);
+        jPEmployeeMainCenter.add(jTextField6);
 
         jTextField7.setText("jTextField7");
-        jPanel4.add(jTextField7);
+        jPEmployeeMainCenter.add(jTextField7);
 
         jTextField8.setText("jTextField8");
-        jPanel4.add(jTextField8);
+        jPEmployeeMainCenter.add(jTextField8);
 
         jTextField9.setText("jTextField9");
-        jPanel4.add(jTextField9);
+        jPEmployeeMainCenter.add(jTextField9);
 
         jTextField10.setText("jTextField10");
-        jPanel4.add(jTextField10);
+        jPEmployeeMainCenter.add(jTextField10);
 
         jTextField11.setText("jTextField11");
-        jPanel4.add(jTextField11);
+        jPEmployeeMainCenter.add(jTextField11);
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBEmployeeInsert.setText("Insert");
+        jBEmployeeInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBEmployeeInsertActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton1);
+        jPanel7.add(jBEmployeeInsert);
 
-        jButton2.setText("jButton2");
-        jPanel7.add(jButton2);
+        jBEmployeeUpdate.setText("Update");
+        jBEmployeeUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEmployeeUpdateActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jBEmployeeUpdate);
 
-        jButton3.setText("jButton3");
-        jPanel7.add(jButton3);
+        jPEmployeeMainCenter.add(jPanel7);
 
-        jButton4.setText("jButton4");
-        jPanel7.add(jButton4);
-
-        jPanel4.add(jPanel7);
-
-        jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
-
-        jLabel1.setText("EMPLOYEES");
-        jPanel5.add(jLabel1);
-
-        jPanel2.add(jPanel5, java.awt.BorderLayout.PAGE_START);
+        jPEmployeeMain.add(jPEmployeeMainCenter, java.awt.BorderLayout.CENTER);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,34 +185,33 @@ public class HRView extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPEmployeeMainSouthLayout = new javax.swing.GroupLayout(jPEmployeeMainSouth);
+        jPEmployeeMainSouth.setLayout(jPEmployeeMainSouthLayout);
+        jPEmployeeMainSouthLayout.setHorizontalGroup(
+            jPEmployeeMainSouthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
+        jPEmployeeMainSouthLayout.setVerticalGroup(
+            jPEmployeeMainSouthLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPEmployeeMainSouthLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanel6, java.awt.BorderLayout.PAGE_END);
+        jPEmployeeMain.add(jPEmployeeMainSouth, java.awt.BorderLayout.PAGE_END);
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout jIFEmployeeLayout = new javax.swing.GroupLayout(jIFEmployee.getContentPane());
+        jIFEmployee.getContentPane().setLayout(jIFEmployeeLayout);
+        jIFEmployeeLayout.setHorizontalGroup(
+            jIFEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jIFEmployeeLayout.setVerticalGroup(
+            jIFEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jInternalFrame1);
-        jInternalFrame1.getAccessibleContext().setAccessibleParent(jMenuItem1);
+        jPanelMain.add(jIFEmployee);
 
         jMenu1.setText("CRUD");
 
@@ -235,26 +231,31 @@ public class HRView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE)
+            .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+            .addComponent(jPanelMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        jInternalFrame1.setVisible(true);
-        jInternalFrame1.setBounds(5, 5, 200, 300);
-        jInternalFrame1.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jIFEmployee.setVisible(true);
+//        jIFEmployee.setBounds(5, 5, 200, 300);
+        jIFEmployee.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jIFEmployee.revalidate();
 //        jPanel1.add(jInternalFrame1, javax.swing.JLayeredPane.DEFAULT_LAYER);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBEmployeeInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBEmployeeInsertActionPerformed
+
+    private void jBEmployeeUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBEmployeeUpdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,33 +294,31 @@ public class HRView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JButton jBEmployeeInsert;
+    private javax.swing.JButton jBEmployeeUpdate;
+    private javax.swing.JInternalFrame jIFEmployee;
+    private javax.swing.JLabel jLEmployeeCommissionPct;
+    private javax.swing.JLabel jLEmployeeEmail;
+    private javax.swing.JLabel jLEmployeeEmployeeID;
+    private javax.swing.JLabel jLEmployeeFirstName;
+    private javax.swing.JLabel jLEmployeeHireDate;
+    private javax.swing.JLabel jLEmployeeJobID;
+    private javax.swing.JLabel jLEmployeeLastName;
+    private javax.swing.JLabel jLEmployeeManagerID;
+    private javax.swing.JLabel jLEmployeePhoneNumber;
+    private javax.swing.JLabel jLEmployeeSalary;
+    private javax.swing.JLabel jLEmployeeTitle;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPEmployeeMain;
+    private javax.swing.JPanel jPEmployeeMainCenter;
+    private javax.swing.JPanel jPEmployeeMainNorth;
+    private javax.swing.JPanel jPEmployeeMainSouth;
+    private javax.swing.JPanel jPEmployeeMainWest;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanelMain;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
