@@ -38,10 +38,6 @@ public class Employee {
         this.manager_id = manager_id;
         this.department_id = department_id;
     }
-    
-    
-    
-    
 
     public int getId() {
         return id;
