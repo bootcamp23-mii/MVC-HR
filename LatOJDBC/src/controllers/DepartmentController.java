@@ -31,5 +31,25 @@ public class DepartmentController {
         return result;
     }
     
+    public String delete(String id){
+        String result="";
+        if (ddao.delete(Integer.parseInt(id))) {
+            result="selamat data berhasil dihapus";
+        } else {
+            result="Maaf, data gagal dihapus";
+        }
+        return result;
+    }
+    
+    public String update(String id, String department_name, String manager_id, String location_id){
+        String result="";
+        if (ddao.save(new Department(Integer.parseInt(id), department_name
+                , Integer.parseInt(manager_id), Integer.parseInt(location_id)), false)){
+            result="Selamat data berhasil disimpan";
+        } else {
+            result="maaf data gagal disimpan";
+        }
+        return result;
+    }
 }
 
