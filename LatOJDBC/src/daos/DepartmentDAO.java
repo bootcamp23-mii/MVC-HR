@@ -28,7 +28,7 @@ public class DepartmentDAO {
         List<Department> listDepartment = new ArrayList<Department>();
         String query = "";
         if (isGetById) {
-            query = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID=";
+            query = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID= "+keyword;
         } else {
             query = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID LIKE '%" + keyword
                     + "%' OR DEPARTMENT_NAME '%" + keyword + "%'";
@@ -42,7 +42,7 @@ public class DepartmentDAO {
 
             }
         } catch (Exception e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
         return listDepartment;
     }
@@ -51,21 +51,35 @@ public class DepartmentDAO {
         boolean result = false;
         String query = "";
         if (isInsert) {
-            query = "INSERT INTO DEPARTMENTS VALUES(?,?)";
+            query = "INSERT INTO DEPARTMENTS(ID,DEPARTMENT_NAME,MANAGER_ID,LOCATION_ID) VALUES("+d.getId()+","
+                    +d.getName()+","+d.getManager_id()+","+d.getLocation_id()+")";
         } else {
-            query = "UPDATE DEPARTMENTS DEPARTMENT_NAME=? DEPARTMENT_ID=?";
+            query = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME="+d.getName()+",MANAGER_ID="+d.getManager_id()+
+                    ",LOCATION_ID="+d.getLocation_id()+"WHERE ID="+d.getId();
         }
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, d.getName());
-            preparedStatement.setInt(2, d.getId());
             preparedStatement.executeQuery();
             result = true;
         } catch (Exception e) {
-            e.getStackTrace();
+            e.printStackTrace();
         }
         return result;
-
+    }
+    
+    public boolean delete(int id){
+        boolean isDelete=false;
+        String query="DELETE FROM DEPARTMENTS WHERE ID="+id;
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet=preparedStatement.executeQuery();
+            isDelete=true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return isDelete;
+    
     }
 
 }
