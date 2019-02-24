@@ -10,7 +10,7 @@ package models;
  * @author Panji Sadewo
  */
 public class Employee {
-    private int id;
+    private int employeeId;
     private String first_name;
     private String last_name;
     private String email;
@@ -26,7 +26,7 @@ public class Employee {
     }
     
     public Employee(int id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, int commission_pct, int manager_id, int department_id) {
-        this.id = id;
+        this.employeeId = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.email = email;
@@ -39,12 +39,12 @@ public class Employee {
         this.department_id = department_id;
     }
 
-    public int getId() {
-        return id;
+    public int getEmployeeId() {
+        return employeeId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     public String getFirst_name() {
