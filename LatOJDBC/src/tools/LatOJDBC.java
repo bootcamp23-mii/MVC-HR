@@ -32,10 +32,10 @@ public class LatOJDBC {
 //            System.out.println("ID      : " + region.getId());
 //            System.out.println("Name    : " + region.getName());
 //        }
-   for (Region region : rdao.getData(r, true)) {
-            System.out.println("ID      : " + region.getId());
-            System.out.println("Name    : " + region.getName());
-        }
+//   for (Region region : rdao.getData(20, true)) {
+//            System.out.println("ID      : " + region.getId());
+//            System.out.println("Name    : " + region.getName());
+//        }
     }
 }
 
