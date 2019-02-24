@@ -5,26 +5,26 @@
  */
 package controllers;
 
-import daos.RegionDAO;
+import daos.LocationDAO;
 import java.sql.Connection;
-import models.Region;
+import models.Location;
 
 /**
  *
  * @author Pandu
  */
-public class RegionController {
+public class LocationController {
 
     private Connection connection;
-    private RegionDAO rdao;
+    private LocationDAO ldao;
 
-    public RegionController(Connection connection) {
-        rdao = new RegionDAO(connection);
+    public LocationController(Connection connection) {
+        ldao = new LocationDAO(connection);
     }
 
-    public String insert(String id, String name) {
+    public String insert(String id, String address, String postal, String city, String province, String country) {
         String result = "";
-        if (rdao.save(new Region(Integer.parseInt(id), name), true)) {
+        if (ldao.save(new Location(Integer.parseInt(id), address, postal, city, province, country), true)) {
             result = "YEAY";
         } else {
             result = "OUCH";

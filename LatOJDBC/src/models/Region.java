@@ -7,7 +7,7 @@ package models;
 
 /**
  *
- * @author AdhityaWP
+ * @author Pandu
  */
 public class Region {
     private int id;
@@ -15,11 +15,13 @@ public class Region {
 
     public Region() {
     }
-
+    
     public Region(int id, String name) {
         this.id = id;
         this.name = name;
     }
+
+    
     
     public int getId() {
         return id;
@@ -36,7 +38,5 @@ public class Region {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
     
 }

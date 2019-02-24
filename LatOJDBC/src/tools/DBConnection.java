@@ -10,14 +10,13 @@ import oracle.jdbc.pool.OracleDataSource;
 
 /**
  *
- * @author milhamafemi
+ * @author Pandu
  */
 public class DBConnection {
-
     private Connection connection;
-
-    public Connection getConnection() {
+    public Connection getConnection(){
         try {
+            
             OracleDataSource ods = new OracleDataSource();
             ods.setDriverType("thin");
             ods.setServerName("localhost");
@@ -26,7 +25,7 @@ public class DBConnection {
             ods.setServiceName("XE");
             ods.setPassword("admin");
             this.connection = ods.getConnection();
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
