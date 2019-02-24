@@ -18,17 +18,36 @@ public class EmployeeController {
     private Connection connection;
     private EmployeeDAO edao;
     public EmployeeController(Connection connection) {
-        EmployeeDAO employeeDAO = new EmployeeDAO(connection);
+        edao = new EmployeeDAO(connection);
     }
     
-    public String getDataController(int id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, int commission_pict, int manager_id, int department_id){
+    /**
+     * 
+     * @param keyword
+     * @param isGetById
+     * @return 
+     */
+    public String getData(String keyword, boolean isGetById){
         String result ="";
-        if (edao.getData(new Employee(Integer.parseInt(id), first_name, last_name, email, phone_number, hire_date, job_id, Integer.parseInt(salary), Integer.parseInt(commission_pict), Integer.parseInt(manager_id), Integer.parseInt(department_id)), true)) {
-            result ="Data berhasil di lihat";
-        }
-        else
+        if (keyword.equals("")&&!isGetById)
         {
-            result="Maaf data gagal dilihat";
+            if (edao.getData(keyword, isGetById).isEmpty())System.out.println("Data tidak ditemukan");
+            else System.out.println("Data berhasil dilihat");
+        }
+        else if (!keyword.equals("")&&!isGetById)
+        {
+            if (edao.getData(keyword, isGetById).isEmpty())System.out.println("Data tidak ditemukan");
+            else System.out.println("Data berhasil dilihat");
+        }
+        else if (!keyword.equals("")&&isGetById)
+        {
+            if (edao.getData(keyword, isGetById).isEmpty())System.out.println("Data tidak ditemukan");
+            else System.out.println("Data berhasil dilihat");
+        }
+        else if (keyword.equals("")&&isGetById)
+        {
+            if (edao.getData(keyword, isGetById).isEmpty())System.out.println("Data tidak ditemukan");
+            else System.out.println("Data berhasil dilihat");
         }
         return result;
     }
