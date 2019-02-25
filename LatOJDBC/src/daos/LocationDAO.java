@@ -24,7 +24,7 @@ public class LocationDAO {
     public LocationDAO(Connection connection) {
         this.connection = connection;
     }
-
+    
     public boolean delete(int id) {
         boolean result = false;
         String query = "DELETE FROM LOCATIONS WHERE LOCATION_ID=" + id;

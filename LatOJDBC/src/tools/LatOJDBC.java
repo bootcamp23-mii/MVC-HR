@@ -1,9 +1,13 @@
+package tools;
 
 import controllers.EmployeeController;
+import controllers.LocationController;
 import daos.DepartmentDAO;
 import daos.EmployeeDAO;
+import daos.LocationDAO;
 import daos.RegionDAO;
 import models.Employee;
+import models.Location;
 import models.Region;
 import tools.DBConnection;
 
@@ -22,16 +26,20 @@ public class LatOJDBC {
         DepartmentDAO ddao = new DepartmentDAO(connection.getConnection());
         RegionDAO rdao = new RegionDAO(connection.getConnection());
         EmployeeDAO edao = new EmployeeDAO(connection.getConnection());
+        LocationDAO ldao = new LocationDAO(connection.getConnection());
+
         //dengan constructor
         Region r = new Region();
         Employee e = new Employee();
-        
-        
-        EmployeeController ec = new EmployeeController(connection.getConnection());
-        System.out.println(ec.getData("", false));
-        System.out.println(ec.getData("", false));
-        
+        Location l = new Location();
 
+        LocationController lc = new LocationController(connection.getConnection());
+        EmployeeController ec = new EmployeeController(connection.getConnection());
+
+//`       EMPLOYEE        
+//        System.out.println(ec.getData("", false));
+//        System.out.println(ec.getData("", false));
+//        
 //tanpa constructor
 //        Region r= new Region();
 //        r.setId(5);
@@ -55,5 +63,22 @@ public class LatOJDBC {
 //            System.out.println("Manager ID    : " + employee.getManager_id());
 //            System.out.println("Department ID    : " + employee.getDepartment_id());
 //        }
+
+//      LOCATION CLASS
+//      GET DATA
+//        for (Location location : ldao.getData("", false)) {
+//            System.out.println("============================================");
+//            System.out.println("ID              : " + location.getId());
+//            System.out.println("ADDRESS         : " + location.getAddress());
+//            System.out.println("POSTAL CODE     : " + location.getPostal());
+//            System.out.println("CITY            : " + location.getCity());
+//            System.out.println("PROVINCE        : " + location.getProvince());
+//            System.out.println("COUNTRY         : " + location.getCountry());
+//        }
+//      SAVE
+        System.out.println(lc.insert("1001", "Jl. Kemanggisan Raya", "63572", "Jakarta brat", "Jakarta", "IN"));
+
+//      DELETE
+//      System.out.println(ldao.delete(1001));
     }
 }
