@@ -1,6 +1,7 @@
 
 
 
+import controllers.DepartmentController;
 import daos.DepartmentDAO;
 import daos.RegionDAO;
 import models.Region;
@@ -22,6 +23,8 @@ public class LatOJDBC {
         RegionDAO rdao = new RegionDAO(connection.getConnection());
         //dengan constructor
         Region r= new Region();
+        DepartmentController dc=new DepartmentController(connection.getConnection());
+        System.out.println(dc.insert("800", "mii", "121", "1700"));
         //tanpa constructor
 //        Region r= new Region();
 //        r.setId(5);

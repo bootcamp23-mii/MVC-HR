@@ -52,10 +52,10 @@ public class DepartmentDAO {
         boolean result = false;
         String query = "";
         if (isInsert) {
-            query = "INSERT INTO DEPARTMENTS(ID,DEPARTMENT_NAME,MANAGER_ID,LOCATION_ID) VALUES("+d.getId()+","
-                    +d.getName()+","+d.getManager_id()+","+d.getLocation_id()+")";
+            query = "INSERT INTO DEPARTMENTS(DEPARTMENT_ID,DEPARTMENT_NAME,MANAGER_ID,LOCATION_ID) VALUES("+d.getId()+",'"
+                    +d.getName()+"',"+d.getManager_id()+","+d.getLocation_id()+")";
         } else {
-            query = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME="+d.getName()+",MANAGER_ID="+d.getManager_id()+
+            query = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME='"+d.getName()+"',MANAGER_ID="+d.getManager_id()+
                     ",LOCATION_ID="+d.getLocation_id()+"WHERE ID="+d.getId();
         }
         try {
