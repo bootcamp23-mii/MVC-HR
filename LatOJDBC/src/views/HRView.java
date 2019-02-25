@@ -273,7 +273,7 @@ public class HRView extends javax.swing.JFrame {
         );
         jIFEmployeeLayout.setVerticalGroup(
             jIFEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.PREFERRED_SIZE, 670, Short.MAX_VALUE)
         );
 
         jPanelMain.add(jIFEmployee);
@@ -359,7 +359,8 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEmployeeSearchActionPerformed
 
     private void jBEmployeeDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeDeleteActionPerformed
-        ec.delete(jTFEmployeeSearch.getText());
+//        ec.delete(jTFEmployeeSearch.getText());
+        JOptionPane.showMessageDialog(getRootPane(), ""+jTFEmployeeSearch.getText().toString());
     }//GEN-LAST:event_jBEmployeeDeleteActionPerformed
 
     
