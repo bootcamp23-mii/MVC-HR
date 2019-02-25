@@ -33,10 +33,9 @@ public class LocationController {
         return result;
     }
 
-    public List<Location> getAll(String keyword) {
+    public List<Location> getAll(String keyword, boolean con) {
         List result;
-        result = ldao.getData(keyword, true);
-
+        result = ldao.getData(keyword, con);
         return result;
     }
 }
