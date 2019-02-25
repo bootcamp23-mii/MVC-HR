@@ -42,12 +42,12 @@ public class HRView extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        idField = new javax.swing.JTextField();
+        streetField = new javax.swing.JTextField();
+        postalField = new javax.swing.JTextField();
+        cityField = new javax.swing.JTextField();
+        provinceField = new javax.swing.JTextField();
+        countryField = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -153,30 +153,19 @@ public class HRView extends javax.swing.JFrame {
 
         jPanel11.setLayout(new java.awt.GridLayout(12, 1));
 
-        jTextField12.setText("jTextField1");
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+        idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
+                idFieldActionPerformed(evt);
             }
         });
-        jPanel11.add(jTextField12);
+        jPanel11.add(idField);
+        jPanel11.add(streetField);
+        jPanel11.add(postalField);
+        jPanel11.add(cityField);
+        jPanel11.add(provinceField);
+        jPanel11.add(countryField);
 
-        jTextField13.setText("jTextField2");
-        jPanel11.add(jTextField13);
-
-        jTextField14.setText("jTextField3");
-        jPanel11.add(jTextField14);
-
-        jTextField15.setText("jTextField4");
-        jPanel11.add(jTextField15);
-
-        jTextField16.setText("jTextField5");
-        jPanel11.add(jTextField16);
-
-        jTextField17.setText("jTextField6");
-        jPanel11.add(jTextField17);
-
-        jButton5.setText("jButton1");
+        jButton5.setText("INSERT");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -184,13 +173,13 @@ public class HRView extends javax.swing.JFrame {
         });
         jPanel12.add(jButton5);
 
-        jButton6.setText("jButton2");
+        jButton6.setText("UPDATE");
         jPanel12.add(jButton6);
 
-        jButton7.setText("jButton3");
+        jButton7.setText("DELETE");
         jPanel12.add(jButton7);
 
-        jButton8.setText("jButton4");
+        jButton8.setText("SEARCH");
         jPanel12.add(jButton8);
 
         jPanel11.add(jPanel12);
@@ -338,6 +327,11 @@ public class HRView extends javax.swing.JFrame {
         jPanel7.add(jButton3);
 
         jButton4.setText("jButton4");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton4);
 
         jPanel4.add(jPanel7);
@@ -449,6 +443,7 @@ public class HRView extends javax.swing.JFrame {
         LocationFrame.setVisible(true);
         LocationFrame.setBounds(5, 5, 200, 300);
         LocationFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        LocationFrame.revalidate();
 
         // TODO add your handling code here:
         
@@ -458,9 +453,13 @@ public class HRView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_idFieldActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,6 +500,9 @@ public class HRView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame LocationFrame;
     private javax.swing.JPanel LocationPanel;
+    private javax.swing.JTextField cityField;
+    private javax.swing.JTextField countryField;
+    private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -557,12 +559,6 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -571,5 +567,8 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField postalField;
+    private javax.swing.JTextField provinceField;
+    private javax.swing.JTextField streetField;
     // End of variables declaration//GEN-END:variables
 }
