@@ -21,16 +21,15 @@ import tools.DBConnection;
  * @author FES
  */
 public class HRView extends javax.swing.JFrame {
-    
+
     DBConnection connection = new DBConnection();
-    
+
     LocationDAO ldao = new LocationDAO(connection.getConnection());
     EmployeeController ec = new EmployeeController(connection.getConnection());
     LocationController lc = new LocationController(connection.getConnection());
     List<Location> listDataLoc = new ArrayList<Location>();
     int x = 0;
     private DefaultTableModel modelloc;
-    
 
     /**
      * Creates new form NewJFrame
@@ -41,7 +40,7 @@ public class HRView extends javax.swing.JFrame {
         judulTable();
         tampilData("", false);
     }
-    
+
 //    private void tableData(){
 //        DefaultTableModel tableModel = new DefaultTableModel();
 //        jTable1.setModel(tableModel);
@@ -408,6 +407,11 @@ public class HRView extends javax.swing.JFrame {
                 "NO", "ID", "Adress", "Postal", "City", "Province", "Country"
             }
         ));
+        tableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableData);
 
         javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
@@ -576,7 +580,7 @@ public class HRView extends javax.swing.JFrame {
 //            };
 //            tableModelEmployee.addRow(data);
 //        }
-       
+
     }//GEN-LAST:event_jBEmployeeGetAllActionPerformed
 
     private void jBEmployeeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeSearchActionPerformed
@@ -610,13 +614,13 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_tfstateActionPerformed
 
     private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
-        
-        String id        =tflocation_id.getText();
-        String address   =tfStreet_address.getText();
-        String postalCode=tfPostal_code.getText();
-        String city      =tfCity.getText();
-        String state     =tfstate.getText();
-        String countryId =tfCountryId.getText();
+
+        String id = tflocation_id.getText();
+        String address = tfStreet_address.getText();
+        String postalCode = tfPostal_code.getText();
+        String city = tfCity.getText();
+        String state = tfstate.getText();
+        String countryId = tfCountryId.getText();
         lc.insert(id, address, postalCode, city, state, countryId);
     }//GEN-LAST:event_insertButtonActionPerformed
 
@@ -631,7 +635,7 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
+
 //        String id =Integer.parseInttflocation_id.getText();
 //        lc.delete(id);
     }//GEN-LAST:event_deleteButtonActionPerformed
@@ -640,8 +644,19 @@ public class HRView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfStreet_addressActionPerformed
 
-    
-    
+    private void tableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataMouseClicked
+        if (tableData.getSelectedColumn() == 1) {
+            deleteButton.setEnabled(true);
+            int row = tableData.getSelectedRow();
+            tflocation_id.setText(tableData.getValueAt(row, 1).toString());
+            tfStreet_address.setText(tableData.getValueAt(row, 2).toString());
+            tfPostal_code.setText(tableData.getValueAt(row, 3).toString());
+            tfCity.setText(tableData.getValueAt(row, 4).toString());
+            tfstate.setText(tableData.getValueAt(row, 5).toString());
+            tfCountryId.setText(tableData.getValueAt(row, 6).toString());
+        }
+    }//GEN-LAST:event_tableDataMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -752,8 +767,6 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField tfstate;
     // End of variables declaration//GEN-END:variables
 
-    
-    
     private void judulTable() {
         modelloc = new DefaultTableModel();
         modelloc.addColumn("NO");
@@ -765,14 +778,14 @@ public class HRView extends javax.swing.JFrame {
         modelloc.addColumn("Country");
         tableData.setModel(modelloc);
     }
-    
+
     private void tampilData(String string, boolean b) {
         modelloc.setRowCount(0);
         listDataLoc = lc.getAll(string, false);
-        
-        for(x=0; x< listDataLoc.size(); x++){
+
+        for (x = 0; x < listDataLoc.size(); x++) {
             Object[] data = new Object[7];
-            data[0] = x+1;
+            data[0] = x + 1;
             data[1] = listDataLoc.get(x).getId();
             data[2] = listDataLoc.get(x).getAddress();
             data[3] = listDataLoc.get(x).getPostal();
