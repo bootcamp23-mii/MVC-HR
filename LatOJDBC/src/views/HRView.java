@@ -49,10 +49,10 @@ public class HRView extends javax.swing.JFrame {
         provinceField = new javax.swing.JTextField();
         countryField = new javax.swing.JTextField();
         button = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        insertButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
+        deleteButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
         Title = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
         table = new javax.swing.JPanel();
@@ -165,22 +165,27 @@ public class HRView extends javax.swing.JFrame {
         Field.add(provinceField);
         Field.add(countryField);
 
-        jButton5.setText("INSERT");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        insertButton.setText("INSERT");
+        insertButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                insertButtonActionPerformed(evt);
             }
         });
-        button.add(jButton5);
+        button.add(insertButton);
 
-        jButton6.setText("UPDATE");
-        button.add(jButton6);
+        updateButton.setText("UPDATE");
+        button.add(updateButton);
 
-        jButton7.setText("DELETE");
-        button.add(jButton7);
+        deleteButton.setText("DELETE");
+        button.add(deleteButton);
 
-        jButton8.setText("SEARCH");
-        button.add(jButton8);
+        searchButton.setText("SEARCH");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        button.add(searchButton);
 
         Field.add(button);
 
@@ -457,9 +462,9 @@ public class HRView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void insertButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_insertButtonActionPerformed
 
     private void idFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idFieldActionPerformed
         // TODO add your handling code here:
@@ -468,6 +473,11 @@ public class HRView extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -514,15 +524,13 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JPanel button;
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField countryField;
+    private javax.swing.JButton deleteButton;
     private javax.swing.JTextField idField;
+    private javax.swing.JButton insertButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
@@ -576,7 +584,9 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField postalField;
     private javax.swing.JTextField provinceField;
+    private javax.swing.JButton searchButton;
     private javax.swing.JTextField streetField;
     private javax.swing.JPanel table;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
