@@ -51,5 +51,17 @@ public class DepartmentController {
         }
         return result;
     }
+    
+    public String getData(String keyword, boolean isGetById){
+        String result="";
+        if (keyword.equals("")&&isGetById) {
+            if (ddao.getData(keyword, isGetById).isEmpty()); 
+            else ;
+            
+        } else if (true) {
+            
+        }
+        return null;
+    }
 }
 
