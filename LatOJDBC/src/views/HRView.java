@@ -446,6 +446,10 @@ public class HRView extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // LOCATION View
+        LocationFrame.setVisible(true);
+        LocationFrame.setBounds(5, 5, 200, 300);
+        LocationFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
