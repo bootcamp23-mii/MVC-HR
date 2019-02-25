@@ -271,6 +271,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Delete by ID"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEmployeeDeleteActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSEmployees2">
                         </Component>

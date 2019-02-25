@@ -6,6 +6,7 @@
 package views;
 
 import controllers.EmployeeController;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import models.Employee;
 import tools.DBConnection;
@@ -183,7 +184,7 @@ public class HRView extends javax.swing.JFrame {
 
         jPEmployeeMainCenter.add(jPEmployeeMainCenterContent1);
 
-        jPEmployeeMainCenterContent2.setLayout(new java.awt.GridLayout());
+        jPEmployeeMainCenterContent2.setLayout(new java.awt.GridLayout(1, 0));
         jPEmployeeMainCenterContent2.add(jTFEmployeeSearch);
 
         jPEmployeeMainCenter.add(jPEmployeeMainCenterContent2);
@@ -191,6 +192,11 @@ public class HRView extends javax.swing.JFrame {
         jPEmployeeMainCenterContent3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         jBEmployeeDelete.setText("Delete by ID");
+        jBEmployeeDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEmployeeDeleteActionPerformed(evt);
+            }
+        });
         jPEmployeeMainCenterContent3.add(jBEmployeeDelete);
         jPEmployeeMainCenterContent3.add(jSEmployees2);
 
@@ -309,11 +315,11 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jBEmployeeInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeInsertActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, ec.insert(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText()));
     }//GEN-LAST:event_jBEmployeeInsertActionPerformed
 
     private void jBEmployeeUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeUpdateActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, ec.update(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText()));
     }//GEN-LAST:event_jBEmployeeUpdateActionPerformed
 
     private void jTFEmployeeEmployeeIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFEmployeeEmployeeIdActionPerformed
@@ -351,6 +357,10 @@ public class HRView extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jBEmployeeSearchActionPerformed
+
+    private void jBEmployeeDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeDeleteActionPerformed
+        JOptionPane.showMessageDialog(rootPane, ec.delete(jTFEmployeeSearch.getText()));
+    }//GEN-LAST:event_jBEmployeeDeleteActionPerformed
 
     
     
