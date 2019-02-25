@@ -8,6 +8,7 @@ package controllers;
 import daos.RegionDAO;
 import java.util.List;
 import java.sql.Connection;
+import java.util.ArrayList;
 import models.Region;
 
 /**
@@ -40,15 +41,25 @@ public class RegionController {
         return result;
     }
     
-    public List<Region> getById(String key){
-        List result;
-        result = rdao.getData(key, true);
+    public String delete(String id) {
+        String result = "";
+        if (rdao.delete((Integer.parseInt(id)))){
+            result = "Data berhasil dihapus";            
+        }else{
+            result = "Maaf data gagal dihapus";
+        }
+        return result;
+    }
+    
+    public List<Region> getById(String key, boolean s){
+        List result = new ArrayList();
+        result = rdao.getData(key, s);
         return result;        
     }
     
-    public List<Region> searchBy(String key){
-        List result;
-        result = rdao.getData(key, false);
+    public List<Region> searchBy(String key, boolean s){
+        List result = new ArrayList();
+        result = rdao.getData(key, s);
         return result;        
     }
 }
