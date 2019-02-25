@@ -5,21 +5,28 @@
  */
 package views;
 
+import controllers.LocationController;
 import daos.LocationDAO;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import models.Location;
 import tools.DBConnection;
 
 /**
  *
  * @author FES
  */
-public class HRView extends javax.swing.JFrame {
+public class HRViews extends javax.swing.JFrame {
 
+    private DefaultTableModel model;
     DBConnection dbc = new DBConnection();
+    List<Location> listLoc = new ArrayList<Location>();
+    LocationController lc = new LocationController(dbc.getConnection());
     /**
      * Creates new form NewJFrame
      */
-    public HRView() {
+    public HRViews() {
         initComponents();
     }
 
@@ -124,7 +131,7 @@ public class HRView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        LocationPanel.setLayout(new javax.swing.OverlayLayout(LocationPanel));
+        LocationPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LocationFrame.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         LocationFrame.setClosable(true);
@@ -254,7 +261,7 @@ public class HRView extends javax.swing.JFrame {
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        LocationPanel.add(LocationFrame);
+        LocationPanel.add(LocationFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 625));
 
         jPanel1.setLayout(new javax.swing.OverlayLayout(jPanel1));
 
@@ -495,7 +502,7 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_searchButtonActionPerformed
  
     private void tableTitle(){
-        DefaultTableModel model = new DefaultTableModel();
+        model = new DefaultTableModel();
         model.addColumn("No");
         model.addColumn("ID");
         model.addColumn("Address");
@@ -506,8 +513,9 @@ public class HRView extends javax.swing.JFrame {
         locationTable.setModel(model);
     }
     
-    private void showData(String x, boolean  j){
-        DefaultTableModel model = new DefaultTableModel();
+    private void showData(){
+        model.setRowCount(0);
+        listLoc = lc.getAll(idField.getText());
         
     }
     
@@ -528,21 +536,23 @@ public class HRView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HRView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HRViews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HRView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HRViews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HRView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HRViews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HRView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HRViews.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HRView().setVisible(true);
+                new HRViews().setVisible(true);
             }
         });
     }

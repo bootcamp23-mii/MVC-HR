@@ -29,15 +29,16 @@ public class LocationMain {
         
 
 //      GET DATA
-//        for (Location location : ldao.getData("", false)) {
-//            System.out.println("============================================");
-//            System.out.println("ID              : " + location.getId());
-//            System.out.println("ADDRESS         : " + location.getAddress());
-//            System.out.println("POSTAL CODE     : " + location.getPostal());
-//            System.out.println("CITY            : " + location.getCity());
-//            System.out.println("PROVINCE        : " + location.getProvince());
-//            System.out.println("COUNTRY         : " + location.getCountry());
-//        }
+        
+        for (Location location : lc.getAll("")) {
+            System.out.println("============================================");
+            System.out.println("ID              : " + location.getId());
+            System.out.println("ADDRESS         : " + location.getAddress());
+            System.out.println("POSTAL CODE     : " + location.getPostal());
+            System.out.println("CITY            : " + location.getCity());
+            System.out.println("PROVINCE        : " + location.getProvince());
+            System.out.println("COUNTRY         : " + location.getCountry());
+        }
         
 //      SAVE
         System.out.println(lc.insert("1001", "Jl. Kemanggisan Raya","63572","Jakarta brat","Jakarta","IN"));

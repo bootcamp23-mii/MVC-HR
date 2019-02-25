@@ -7,6 +7,7 @@ package controllers;
 
 import daos.LocationDAO;
 import java.sql.Connection;
+import java.util.List;
 import models.Location;
 
 /**
@@ -32,4 +33,10 @@ public class LocationController {
         return result;
     }
 
+    public List<Location> getAll(String keyword) {
+        List result;
+        result = ldao.getData(keyword, true);
+
+        return result;
+    }
 }
