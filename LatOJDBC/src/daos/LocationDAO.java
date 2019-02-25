@@ -25,6 +25,12 @@ public class LocationDAO {
         this.connection = connection;
     }
     
+    /**
+     * This method use to delete some row from locations table
+     * @param id this id use to 
+     * @return return value that given are statement true or false
+     */
+    
     public boolean delete(int id) {
         boolean result = false;
         String query = "DELETE FROM LOCATIONS WHERE LOCATION_ID=" + id;
@@ -37,7 +43,13 @@ public class LocationDAO {
         }
         return result;
     }
-
+    
+    /**
+     * This method use to show some row from locations table
+     * @param keyword are the value of what you want to search
+     * @param isGetById are the value of boolean that to separate search or getByID
+     * @return return that given are the series of data that get from ID
+     */
     public List<Location> getData(Object keyword, boolean isGetById) {
         String query = "";
         List<Location> listRegion = new ArrayList<>();
@@ -63,6 +75,12 @@ public class LocationDAO {
         return listRegion;
     }
 
+    /**
+     * This method use to save or insert some row to locations table
+     * @param l
+     * @param isInsert
+     * @return 
+     */
     public boolean save(Location l, boolean isInsert) {
         boolean result = false;
         String query = "";
