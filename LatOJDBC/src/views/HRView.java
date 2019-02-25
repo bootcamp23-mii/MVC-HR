@@ -261,11 +261,13 @@ public class HRView extends javax.swing.JFrame {
         jIFEmployee.getContentPane().setLayout(jIFEmployeeLayout);
         jIFEmployeeLayout.setHorizontalGroup(
             jIFEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jIFEmployeeLayout.createSequentialGroup()
+                .addComponent(jPEmployeeMain, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jIFEmployeeLayout.setVerticalGroup(
             jIFEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPEmployeeMain, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
 
         jPanelMain.add(jIFEmployee);
@@ -347,6 +349,7 @@ public class HRView extends javax.swing.JFrame {
             };
             tableModelEmployee.addRow(data);
         }
+        
     }//GEN-LAST:event_jBEmployeeSearchActionPerformed
 
     
