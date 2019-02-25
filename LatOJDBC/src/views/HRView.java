@@ -315,11 +315,11 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jBEmployeeInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeInsertActionPerformed
-        JOptionPane.showMessageDialog(rootPane, ec.insert(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText()));
+        ec.insert(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText());
     }//GEN-LAST:event_jBEmployeeInsertActionPerformed
 
     private void jBEmployeeUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeUpdateActionPerformed
-        JOptionPane.showMessageDialog(rootPane, ec.update(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText()));
+        ec.update(jTFEmployeeEmployeeId.getText(), jTFEmployeeFirstName.getText(), jTFEmployeeLastName.getText(), jTFEmployeeEmail.getText(), jTFEmployeePhoneNumber.getText(), jTFEmployeeHireDate.getText(), jTFEmployeeJobId.getText(), jTFEmployeeSalary.getText(), jTFEmployeeCommissionPct.getText(), jTFEmployeeManagerId.getText(), jTFEmployeeDepartmentId.getText());
     }//GEN-LAST:event_jBEmployeeUpdateActionPerformed
 
     private void jTFEmployeeEmployeeIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFEmployeeEmployeeIdActionPerformed
@@ -359,7 +359,7 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jBEmployeeSearchActionPerformed
 
     private void jBEmployeeDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmployeeDeleteActionPerformed
-        JOptionPane.showMessageDialog(rootPane, ec.delete(jTFEmployeeSearch.getText()));
+        ec.delete(jTFEmployeeSearch.getText());
     }//GEN-LAST:event_jBEmployeeDeleteActionPerformed
 
     
