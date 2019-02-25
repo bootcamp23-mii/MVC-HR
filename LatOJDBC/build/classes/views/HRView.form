@@ -9,12 +9,12 @@
             <Property name="text" type="java.lang.String" value="CRUD"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMIEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Employees"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEmployeeActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

@@ -18,14 +18,14 @@ public class Employee {
     private String hire_date;
     private String job_id;
     private int salary;
-    private int commission_pct;
+    private double commission_pct;
     private int manager_id;
     private int department_id;
 
     public Employee() {
     }
     
-    public Employee(int id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, int commission_pct, int manager_id, int department_id) {
+    public Employee(int id, String first_name, String last_name, String email, String phone_number, String hire_date, String job_id, int salary, double commission_pct, int manager_id, int department_id) {
         this.employeeId = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -103,11 +103,11 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int getCommission_pct() {
+    public double getCommission_pct() {
         return commission_pct;
     }
 
-    public void setCommission_pct(int commission_pct) {
+    public void setCommission_pct(double commission_pct) {
         this.commission_pct = commission_pct;
     }
 
