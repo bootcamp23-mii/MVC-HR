@@ -25,10 +25,10 @@ public class CountryDAO {
     }
     
     /**
-     * 
-     * @param keyword
-     * @param isGetById
-     * @return 
+     * Fungsi untuk mencari data dalam tabel Countries. data yang dicari dapat berupa country_id, country_name, atau region_id.
+     * @param keyword data yang ingin dicari, dapat berupa Integer atau String
+     * @param isGetById jika TRUE maka mencari data berdasarkan ID, jika FALSE maka mencari data berdasarkan country_id, country_name, atau region_id.
+     * @return Menampilkan data yang dicari.
      */
     public List<Country> getData(Object keyword, boolean isGetById) {
         List<Country> listCountry = new ArrayList<Country>();
@@ -52,10 +52,10 @@ public class CountryDAO {
     }
     
     /**
-     * 
-     * @param c
-     * @param isInsert
-     * @return 
+     * Fungsi yang dugunakan untuk menambahkan data baru atau memodifikasi data yang sudah ada di tabel Countries.
+     * @param c 
+     * @param isInsert untuk mengetahui apakah menggunakan fungsi insert atau tidak
+     * @return data pada tabel Countries bertambah atau berubah
      */
     public boolean save(Country c, boolean isInsert) {
         boolean result = false;
@@ -76,9 +76,9 @@ public class CountryDAO {
     }
   
     /**
-     * 
-     * @param country_id
-     * @return 
+     * Fungsi untuk menghapus data pada tabel Countries berdasarkan ID country.
+     * @param country_id masukkan id country
+     * @return data pada tabel Countries terhapus.
      */
     public boolean delete(String country_id){
         boolean result = false;
