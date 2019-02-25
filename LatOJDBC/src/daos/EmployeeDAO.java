@@ -47,7 +47,7 @@ public class EmployeeDAO {
             PreparedStatement prepareStatment = connection.prepareStatement(query);
             ResultSet resultSet = prepareStatment.executeQuery();
             while (resultSet.next()) {
-                listEmployee.add(new Employee(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getInt(9), resultSet.getInt(10), resultSet.getInt(11)));
+                listEmployee.add(new Employee(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6), resultSet.getString(7), resultSet.getInt(8), resultSet.getDouble(9), resultSet.getInt(10), resultSet.getInt(11)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -65,11 +65,16 @@ public class EmployeeDAO {
         boolean result = false;
         String query = "";
         if (isInsert) {
-            query = "INSERT INTO EMPLOYEES(EMPLOYEE_ID,FIRST_NAME,LAST_NAME,EMAIL,PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,MANAGER_ID,DEPARTMENT_ID) VALUES("+e.getEmployeeId()+","+ e.getFirst_name()+","+ e.getLast_name()+","+ e.getEmail()+","+e.getPhone_number()+","+e.getHire_date()+","+e.getJob_id()+","+e.getSalary()+","+e.getCommission_pct()+","+e.getManager_id()+","+e.getDepartment_id()+")";
+            query = "INSERT INTO EMPLOYEES(EMPLOYEE_ID,FIRST_NAME,LAST_NAME,EMAIL"
+                    + ",PHONE_NUMBER,HIRE_DATE,JOB_ID,SALARY,COMMISSION_PCT,"
+                    + "MANAGER_ID,DEPARTMENT_ID) VALUES("+e.getEmployeeId()+
+                    ",'"+ e.getFirst_name()+"','"+ e.getLast_name()+"','"+ 
+                    e.getEmail()+"',"+e.getPhone_number()+",TO_DATE('"+e.getHire_date()+"','dd-mm-yyyy'),'"+e.getJob_id()+"',"+e.getSalary()+","+
+                    e.getCommission_pct()+","+e.getManager_id()+","+e.getDepartment_id()+")";
         } else {
-            query = "UPDATE EMPLOYEES SET FIRST_NAME="+e.getFirst_name()+",LAST_NAME="+e.getLast_name()+
-                    ",EMAIL="+e.getEmail()+",PHONE_NUMBER="+e.getPhone_number()+",HIRE_DATE="+e.getHire_date()+",JOB_ID="+e.getJob_id()+
-            ",SALARY="+e.getSalary()+",COMMISSION_PCT="+e.getCommission_pct()+",MANAGER_ID="+e.getManager_id()+",DEPARTMENT_ID="+e.getDepartment_id()+" WHERE EMPLOYEE_ID="+e.getEmployeeId();
+            query = "UPDATE EMPLOYEES SET FIRST_NAME='"+e.getFirst_name()+"',LAST_NAME='"+e.getLast_name()+
+                    "',EMAIL='"+e.getEmail()+"',PHONE_NUMBER='"+e.getPhone_number()+"',HIRE_DATE=TO_DATE('"+e.getHire_date()+"','dd-mm-yyyy'),JOB_ID='"+e.getJob_id()+
+            "',SALARY="+e.getSalary()+",COMMISSION_PCT="+e.getCommission_pct()+",MANAGER_ID="+e.getManager_id()+",DEPARTMENT_ID="+e.getDepartment_id()+" WHERE EMPLOYEE_ID="+e.getEmployeeId();
         }
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
