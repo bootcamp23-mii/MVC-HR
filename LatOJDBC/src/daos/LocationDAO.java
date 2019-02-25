@@ -67,25 +67,25 @@ public class LocationDAO {
         boolean result = false;
         String query = "";
         if (isInsert) {
-            query = "INSERT INTO LOCATIONS(location_id, street_address, postal_code, city, state_province, country_id)"
+            query = "INSERT INTO LOCATIONS(street_address, location_id, postal_code, city, state_province, country_id)"
                     + "VALUES (?,?,?,?,?,?)";
         } else {
             System.out.println("UPDATE HARUSNYA MAH");
-            query = update() + "=?";
-            //"UPDATE LOCATIONS SET " + what + " = " + loc + " WHERE REGION_ID = ?";
+//            query = update() + "=?";
+            query = "UPDATE LOCATIONS SET STREET_ADDRESS = ? WHERE LOCATION_ID = ?";
         }
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, l.getId());
-            preparedStatement.setString(2, l.getAddress());
+            preparedStatement.setString(1, l.getAddress());
+            preparedStatement.setInt(2, l.getId());
             preparedStatement.setString(3, l.getPostal());
             preparedStatement.setString(4, l.getCity());
             preparedStatement.setString(5, l.getProvince());
             preparedStatement.setString(6, l.getCountry());
             preparedStatement.executeQuery();
             result = true;
-            
+
             System.out.println(query);
         } catch (Exception e) {
             e.printStackTrace();
