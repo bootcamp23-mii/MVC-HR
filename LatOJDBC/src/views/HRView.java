@@ -5,12 +5,17 @@
  */
 package views;
 
+import daos.LocationDAO;
+import javax.swing.table.DefaultTableModel;
+import tools.DBConnection;
+
 /**
  *
  * @author FES
  */
 public class HRView extends javax.swing.JFrame {
 
+    DBConnection dbc = new DBConnection();
     /**
      * Creates new form NewJFrame
      */
@@ -57,7 +62,7 @@ public class HRView extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         table = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        locationTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jInternalFrame1 = new javax.swing.JInternalFrame();
         jPanel2 = new javax.swing.JPanel();
@@ -196,7 +201,7 @@ public class HRView extends javax.swing.JFrame {
 
         jPanel9.add(Title, java.awt.BorderLayout.PAGE_START);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        locationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -212,7 +217,15 @@ public class HRView extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(locationTable);
+        if (locationTable.getColumnModel().getColumnCount() > 0) {
+            locationTable.getColumnModel().getColumn(0).setHeaderValue("ID");
+            locationTable.getColumnModel().getColumn(1).setHeaderValue("STREET");
+            locationTable.getColumnModel().getColumn(2).setHeaderValue("POSTAL");
+            locationTable.getColumnModel().getColumn(3).setHeaderValue("CITY");
+            locationTable.getColumnModel().getColumn(4).setHeaderValue("PROVINCE");
+            locationTable.getColumnModel().getColumn(5).setHeaderValue("COUNTRY_ID");
+        }
 
         javax.swing.GroupLayout tableLayout = new javax.swing.GroupLayout(table);
         table.setLayout(tableLayout);
@@ -475,10 +488,29 @@ public class HRView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
-        
+        String id = idField.getText();
+        Boolean condition = true;
+        LocationDAO ldao = new LocationDAO(dbc.getConnection());
         // TODO add your handling code here:
     }//GEN-LAST:event_searchButtonActionPerformed
-
+ 
+    private void tableTitle(){
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("ID");
+        model.addColumn("Address");
+        model.addColumn("Postal");
+        model.addColumn("City");
+        model.addColumn("Province");
+        model.addColumn("Country");
+        locationTable.setModel(model);
+    }
+    
+    private void showData(String x, boolean  j){
+        DefaultTableModel model = new DefaultTableModel();
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -570,7 +602,6 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -582,6 +613,7 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable locationTable;
     private javax.swing.JTextField postalField;
     private javax.swing.JTextField provinceField;
     private javax.swing.JButton searchButton;
