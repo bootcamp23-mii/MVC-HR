@@ -25,10 +25,10 @@ public class CountryDAO {
     }
     
     /**
-     * 
-     * @param keyword
-     * @param isGetById
-     * @return 
+     * Fungsi untuk mencari data dalam tabel Countries. data yang dicari dapat berupa country_id, country_name, atau region_id.
+     * @param keyword data yang ingin dicari, dapat berupa Integer atau String
+     * @param isGetById jika TRUE maka mencari data berdasarkan ID, jika FALSE maka mencari data berdasarkan country_id, country_name, atau region_id.
+     * @return Menampilkan data yang dicari.
      */
     public List<Country> getData(Object keyword, boolean isGetById) {
         List<Country> listCountry = new ArrayList<Country>();
@@ -36,14 +36,14 @@ public class CountryDAO {
         if (isGetById) {
             query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID = " + keyword;
         } else {
-            query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID like '%" + keyword + "%' or COUNTRY_NAME like '%" + keyword + "%'";
+            query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID like '%" + keyword + "%' or COUNTRY_NAME like '%" + keyword + "%'" + "%' or REGION_ID like '%" + keyword + "%'";
         }
 
         try {
             PreparedStatement prepareStatment = connection.prepareStatement(query);
             ResultSet resultSet = prepareStatment.executeQuery();
             while (resultSet.next()) {
-                listCountry.add(new Country(resultSet.getString(1), resultSet.getString(2)));
+                listCountry.add(new Country(resultSet.getString(1), resultSet.getString(2), resultSet.getInt(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,10 +52,10 @@ public class CountryDAO {
     }
     
     /**
-     * 
-     * @param c
-     * @param isInsert
-     * @return 
+     * Fungsi yang dugunakan untuk menambahkan data baru atau memodifikasi data yang sudah ada di tabel Countries.
+     * @param c 
+     * @param isInsert untuk mengetahui apakah menggunakan fungsi insert atau tidak
+     * @return data pada tabel Countries bertambah atau berubah
      */
     public boolean save(Country c, boolean isInsert) {
         boolean result = false;
@@ -76,16 +76,16 @@ public class CountryDAO {
     }
   
     /**
-     * 
-     * @param country_id
-     * @return 
+     * Fungsi untuk menghapus data pada tabel Countries berdasarkan ID country.
+     * @param country_id masukkan id country
+     * @return data pada tabel Countries terhapus.
      */
-    public boolean delete(int country_id){
+    public boolean delete(String country_id){
         boolean result = false;
         String query = "DELETE FROM COUNTRIES WHERE COUNTRY_ID = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);            
-            preparedStatement.setInt(1, country_id);
+            preparedStatement.setString(1, country_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             result = true;
         } catch (Exception e) {

@@ -24,11 +24,10 @@ public class EmployeeController {
     }
     
     /**
-     * Method yang digunakan untuk memvalidasi fungsi getData dari EMPLOYEES
-     * @param keyword keyword untuk menentukan apa yang akan kita ambil
-     * @param isGetById untuk mengetahui apakah getById atau tidak
-     * @return <p>Berhasil: akan mengeluarkan hasil "Data berhasil dilihat".
-     * <p>Gagal: akan mengeluarkan hasil "Data tidak ditemukan".
+     * 
+     * @param keyword
+     * @param isGetById
+     * @return 
      */
     public String getData(String keyword, boolean isGetById){
         String result ="";
@@ -75,7 +74,7 @@ public class EmployeeController {
         String result="";
         if (edao.save(new Employee(Integer.parseInt(id), first_name, last_name, 
                 email, phone_number, hire_date, job_id, Integer.parseInt(salary), 
-                Integer.parseInt(commission_pict), Integer.parseInt(manager_id), 
+                Double.parseDouble(commission_pict), Integer.parseInt(manager_id), 
                 Integer.parseInt(department_id)),true)) {
             result="Selamat data berhasil disimpan";
         }else{
@@ -129,29 +128,11 @@ public class EmployeeController {
         return result;
     }
     
-    /**
-     * Fungsi ini untuk menampilakn data dari Id yang di masukkan
-     * @param key inputan untuk menentukan id yang akan di tampilkan, kosongin aja di key untuk mendapatkan semua
-     * @param s inputan yang wajib bernilai true
-     * @return mengembalikan list employee yang sudah di filter berdasarkan ID atau semua
-     */
-    public List<Employee> getById(String key, boolean s){
-        List result = new ArrayList();
-        result = edao.getData(key, s);
-        return result;        
+    public List<Employee> getAllData(){
+        return edao.getData("", false);
     }
-    
-    /**
-     * Fungsi ini untuk mencari data dari kata kunci yang di masukkan
-     * @param key inputan untuk menentukan kata kunci apa yang akan di masukkan
-     * @param s inputan yang wajib bernilai false
-     * @return mengembalikan list employee yang sudah di filter berdasarkan key
-     */
-    public List<Employee> searchBy(String key, boolean s){
-        List result = new ArrayList();
-        result = edao.getData(key, s);
-        return result;        
+    public List<Employee> searchData(Object keyword, boolean isById){
+        return edao.getData(keyword, isById);
     }
-    
     
 }

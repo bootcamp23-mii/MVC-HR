@@ -9,12 +9,12 @@
             <Property name="text" type="java.lang.String" value="CRUD"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMIEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Employees"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEmployeeActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -50,7 +50,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelMain" alignment="1" pref="625" max="32767" attributes="0"/>
+          <Component id="jPanelMain" alignment="1" pref="695" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -77,12 +77,15 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPEmployeeMain" min="-2" pref="471" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jPEmployeeMain" min="-2" pref="471" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPEmployeeMain" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPEmployeeMain" alignment="0" pref="670" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -119,10 +122,10 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                     <Property name="columns" type="int" value="1"/>
-                    <Property name="rows" type="int" value="15"/>
+                    <Property name="rows" type="int" value="14"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JLabel" name="jLEmployeeEmployeeID">
+                    <Component class="javax.swing.JLabel" name="jLEmployeeEmployeeId">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Employee ID"/>
                       </Properties>
@@ -152,7 +155,7 @@
                         <Property name="text" type="java.lang.String" value="Hire Date"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLEmployeeJobID">
+                    <Component class="javax.swing.JLabel" name="jLEmployeeJobId">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Job Id"/>
                       </Properties>
@@ -167,14 +170,21 @@
                         <Property name="text" type="java.lang.String" value="Commission Pct"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLEmployeeManagerID">
+                    <Component class="javax.swing.JLabel" name="jLEmployeeManagerId">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Manager Id"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel12">
+                    <Component class="javax.swing.JLabel" name="jLEmployeeDepartmentId">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Department Id"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JSeparator" name="jSEmployees1">
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLEmployeeSearch">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Search/Delete"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -188,67 +198,39 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
                     <Property name="columns" type="int" value="1"/>
-                    <Property name="rows" type="int" value="15"/>
+                    <Property name="rows" type="int" value="14"/>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField1"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeEmployeeId">
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFEmployeeEmployeeIdActionPerformed"/>
+                      </Events>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField2"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeFirstName">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField3">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField3"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeLastName">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField4">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField4"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeEmail">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField5">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField5"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeePhoneNumber">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField6">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField6"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeHireDate">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField7">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField7"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeJobId">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField8">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField8"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeSalary">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField9">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField9"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeCommissionPct">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField10">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField10"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeManagerId">
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField11">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="jTextField11"/>
-                      </Properties>
+                    <Component class="javax.swing.JTextField" name="jTFEmployeeDepartmentId">
                     </Component>
-                    <Container class="javax.swing.JPanel" name="jPanel7">
+                    <Container class="javax.swing.JPanel" name="jPEmployeeMainCenterContent1">
 
-                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="0"/>
+                      </Layout>
                       <SubComponents>
                         <Component class="javax.swing.JButton" name="jBEmployeeInsert">
                           <Properties>
@@ -268,6 +250,61 @@
                         </Component>
                       </SubComponents>
                     </Container>
+                    <Container class="javax.swing.JPanel" name="jPEmployeeMainCenterContent2">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+                        <Property name="columns" type="int" value="0"/>
+                        <Property name="rows" type="int" value="1"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JTextField" name="jTFEmployeeSearch">
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="jPEmployeeMainCenterContent3">
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                        <Property name="alignment" type="int" value="0"/>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JButton" name="jBEmployeeDelete">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Delete by ID"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEmployeeDeleteActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JSeparator" name="jSEmployees2">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jBEmployeeSearch">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Search"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEmployeeSearchActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="jCBEmployeeisGetById">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Get By ID"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBEmployeeisGetByIdActionPerformed"/>
+                          </Events>
+                        </Component>
+                        <Component class="javax.swing.JSeparator" name="jSEmployees3">
+                        </Component>
+                        <Component class="javax.swing.JButton" name="jBEmployeeGetAll">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Get All Data"/>
+                          </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBEmployeeGetAllActionPerformed"/>
+                          </Events>
+                        </Component>
+                      </SubComponents>
+                    </Container>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPEmployeeMainSouth">
@@ -280,37 +317,85 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" pref="471" max="32767" attributes="0"/>
+                          <Component id="jSPEmployee" alignment="0" pref="471" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jScrollPane1" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="jSPEmployee" min="-2" pref="171" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                    <Container class="javax.swing.JScrollPane" name="jSPEmployee">
                       <AuxValues>
                         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                       </AuxValues>
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable1">
+                        <Component class="javax.swing.JTable" name="jTEmployee">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="3" rowCount="0">
-                                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                              <Table columnCount="11" rowCount="10">
+                                <Column editable="true" title="Employee ID" type="java.lang.Object"/>
+                                <Column editable="true" title="First Name" type="java.lang.Object"/>
+                                <Column editable="true" title="Last Name" type="java.lang.Object"/>
+                                <Column editable="true" title="Email" type="java.lang.Object"/>
+                                <Column editable="true" title="Phone Number" type="java.lang.Object"/>
+                                <Column editable="true" title="Hire Date" type="java.lang.Object"/>
+                                <Column editable="true" title="Job ID" type="java.lang.Object"/>
+                                <Column editable="true" title="Salary" type="java.lang.Object"/>
+                                <Column editable="true" title="Commission Pct" type="java.lang.Object"/>
+                                <Column editable="true" title="Manager ID" type="java.lang.Object"/>
+                                <Column editable="true" title="Department ID" type="java.lang.Object"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
+                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                                  <Title/>
+                                  <Editor/>
+                                  <Renderer/>
+                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>

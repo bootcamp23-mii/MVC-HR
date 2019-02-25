@@ -1,4 +1,6 @@
 
+
+
 import controllers.EmployeeController;
 import daos.DepartmentDAO;
 import daos.EmployeeDAO;
@@ -19,20 +21,11 @@ public class LatOJDBC {
     public static void main(String[] args) {
         DBConnection connection = new DBConnection();
         //System.out.println(connection.getConnection());
-        DepartmentDAO ddao = new DepartmentDAO(connection.getConnection());
+        DepartmentDAO ddao= new DepartmentDAO(connection.getConnection());
         RegionDAO rdao = new RegionDAO(connection.getConnection());
-        EmployeeDAO edao = new EmployeeDAO(connection.getConnection());
         //dengan constructor
-        Region r = new Region();
-        Employee e = new Employee();
-        
-        
-        EmployeeController ec = new EmployeeController(connection.getConnection());
-        System.out.println(ec.getData("", false));
-        System.out.println(ec.getData("", false));
-        
-
-//tanpa constructor
+        Region r= new Region();
+        //tanpa constructor
 //        Region r= new Region();
 //        r.setId(5);
 //        r.setName("Jauh seklai");
@@ -41,19 +34,17 @@ public class LatOJDBC {
 //        for (Region region : rdao.getAll()) {
 //            System.out.println("ID      : " + region.getId());
 //            System.out.println("Name    : " + region.getName());
-//        } 
-//        for (Employee employee : edao.getData("", false)) {
-//            System.out.println("ID      : " + employee.getId());
-//            System.out.println("Firs Name    : " + employee.getFirst_name());
-//            System.out.println("Last Name    : " + employee.getLast_name());
-//            System.out.println("Email    : " + employee.getEmail());
-//            System.out.println("Phone number    : " + employee.getPhone_number());
-//            System.out.println("Hire Date    : " + employee.getHire_date());
-//            System.out.println("Job ID    : " + employee.getJob_id());
-//            System.out.println("Salary    : " + employee.getSalary());
-//            System.out.println("Commission pct    : " + employee.getCommission_pct());
-//            System.out.println("Manager ID    : " + employee.getManager_id());
-//            System.out.println("Department ID    : " + employee.getDepartment_id());
 //        }
+//   for (Region region : rdao.getData(20, true)) {
+//            System.out.println("ID      : " + region.getId());
+//            System.out.println("Name    : " + region.getName());
+//        }
+
+        EmployeeController ec = new EmployeeController(connection.getConnection());
+        EmployeeDAO edao = new EmployeeDAO(connection.getConnection());
+        System.out.println(ec.insert("209", "a", "x", "sz", "123456789122", "12-12-2018", "IT_PROG", "5000", "0.3", "102", "60"));
+//        edao.save(new Employee(208, "a", "x", "ss", "123456789122", "12-12-2018", "IT_PROG", 5000, 0.3, 102, 60),true);
     }
 }
+
+
