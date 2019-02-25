@@ -34,28 +34,28 @@ public class HRView extends javax.swing.JFrame {
         LocationPanel = new javax.swing.JPanel();
         LocationFrame = new javax.swing.JInternalFrame();
         jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        TextInfo = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
+        Field = new javax.swing.JPanel();
         idField = new javax.swing.JTextField();
         streetField = new javax.swing.JTextField();
         postalField = new javax.swing.JTextField();
         cityField = new javax.swing.JTextField();
         provinceField = new javax.swing.JTextField();
         countryField = new javax.swing.JTextField();
-        jPanel12 = new javax.swing.JPanel();
+        button = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jPanel13 = new javax.swing.JPanel();
+        Title = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
+        table = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -129,41 +129,41 @@ public class HRView extends javax.swing.JFrame {
 
         jPanel9.setLayout(new java.awt.BorderLayout(1, 1));
 
-        jPanel10.setLayout(new java.awt.GridLayout(12, 1));
+        TextInfo.setLayout(new java.awt.GridLayout(12, 1));
 
         jLabel13.setText("ID");
-        jPanel10.add(jLabel13);
+        TextInfo.add(jLabel13);
 
         jLabel14.setText("Street Address");
-        jPanel10.add(jLabel14);
+        TextInfo.add(jLabel14);
 
         jLabel15.setText("Postal Code");
-        jPanel10.add(jLabel15);
+        TextInfo.add(jLabel15);
 
         jLabel16.setText("City");
-        jPanel10.add(jLabel16);
+        TextInfo.add(jLabel16);
 
         jLabel17.setText("Province");
-        jPanel10.add(jLabel17);
+        TextInfo.add(jLabel17);
 
         jLabel18.setText("Country ID");
-        jPanel10.add(jLabel18);
+        TextInfo.add(jLabel18);
 
-        jPanel9.add(jPanel10, java.awt.BorderLayout.LINE_START);
+        jPanel9.add(TextInfo, java.awt.BorderLayout.LINE_START);
 
-        jPanel11.setLayout(new java.awt.GridLayout(12, 1));
+        Field.setLayout(new java.awt.GridLayout(12, 1));
 
         idField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 idFieldActionPerformed(evt);
             }
         });
-        jPanel11.add(idField);
-        jPanel11.add(streetField);
-        jPanel11.add(postalField);
-        jPanel11.add(cityField);
-        jPanel11.add(provinceField);
-        jPanel11.add(countryField);
+        Field.add(idField);
+        Field.add(streetField);
+        Field.add(postalField);
+        Field.add(cityField);
+        Field.add(provinceField);
+        Field.add(countryField);
 
         jButton5.setText("INSERT");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -171,51 +171,59 @@ public class HRView extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton5);
+        button.add(jButton5);
 
         jButton6.setText("UPDATE");
-        jPanel12.add(jButton6);
+        button.add(jButton6);
 
         jButton7.setText("DELETE");
-        jPanel12.add(jButton7);
+        button.add(jButton7);
 
         jButton8.setText("SEARCH");
-        jPanel12.add(jButton8);
+        button.add(jButton8);
 
-        jPanel11.add(jPanel12);
+        Field.add(button);
 
-        jPanel9.add(jPanel11, java.awt.BorderLayout.CENTER);
+        jPanel9.add(Field, java.awt.BorderLayout.CENTER);
 
         jLabel24.setText("EMPLOYEES");
-        jPanel13.add(jLabel24);
+        Title.add(jLabel24);
 
-        jPanel9.add(jPanel13, java.awt.BorderLayout.PAGE_START);
+        jPanel9.add(Title, java.awt.BorderLayout.PAGE_START);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "ID", "STREET", "POSTAL", "CITY", "PROVINCE", "COUNTRY_ID"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout tableLayout = new javax.swing.GroupLayout(table);
+        table.setLayout(tableLayout);
+        tableLayout.setHorizontalGroup(
+            tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
         );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
+        tableLayout.setVerticalGroup(
+            tableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tableLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel9.add(jPanel14, java.awt.BorderLayout.PAGE_END);
+        jPanel9.add(table, java.awt.BorderLayout.PAGE_END);
 
         javax.swing.GroupLayout LocationFrameLayout = new javax.swing.GroupLayout(LocationFrame.getContentPane());
         LocationFrame.getContentPane().setLayout(LocationFrameLayout);
@@ -498,8 +506,12 @@ public class HRView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Field;
     private javax.swing.JInternalFrame LocationFrame;
     private javax.swing.JPanel LocationPanel;
+    private javax.swing.JPanel TextInfo;
+    private javax.swing.JPanel Title;
+    private javax.swing.JPanel button;
     private javax.swing.JTextField cityField;
     private javax.swing.JTextField countryField;
     private javax.swing.JTextField idField;
@@ -540,11 +552,6 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -570,5 +577,6 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JTextField postalField;
     private javax.swing.JTextField provinceField;
     private javax.swing.JTextField streetField;
+    private javax.swing.JPanel table;
     // End of variables declaration//GEN-END:variables
 }
