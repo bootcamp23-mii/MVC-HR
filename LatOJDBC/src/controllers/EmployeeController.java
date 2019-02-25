@@ -7,6 +7,8 @@ package controllers;
 
 import daos.EmployeeDAO;
 import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
 import models.Employee;
 
 /**
@@ -125,4 +127,12 @@ public class EmployeeController {
         }
         return result;
     }
+    
+    public List<Employee> getAllData(){
+        return edao.getData("", false);
+    }
+    public List<Employee> searchData(Object keyword, boolean isById){
+        return edao.getData(keyword, isById);
+    }
+    
 }
