@@ -80,7 +80,6 @@ public class DepartmentDAO {
             e.getStackTrace();
         }
         return isDelete;
-    
     }
 
 }

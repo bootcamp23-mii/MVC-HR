@@ -85,6 +85,7 @@ public class HRView extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -183,7 +184,7 @@ public class HRView extends javax.swing.JFrame {
 
         jPEmployeeMainCenter.add(jPEmployeeMainCenterContent1);
 
-        jPEmployeeMainCenterContent2.setLayout(new java.awt.GridLayout());
+        jPEmployeeMainCenterContent2.setLayout(new java.awt.GridLayout(1, 0));
         jPEmployeeMainCenterContent2.add(jTFEmployeeSearch);
 
         jPEmployeeMainCenter.add(jPEmployeeMainCenterContent2);
@@ -280,6 +281,14 @@ public class HRView extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setText("Department");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -349,6 +358,10 @@ public class HRView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jBEmployeeSearchActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     
     
     /**
@@ -411,6 +424,7 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPEmployeeMain;
     private javax.swing.JPanel jPEmployeeMainCenter;
     private javax.swing.JPanel jPEmployeeMainCenterContent1;

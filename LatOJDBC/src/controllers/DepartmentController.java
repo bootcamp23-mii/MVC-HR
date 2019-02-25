@@ -7,6 +7,7 @@ package controllers;
 
 import daos.DepartmentDAO;
 import java.sql.Connection;
+import java.util.List;
 import models.Department;
 
 /**
@@ -71,6 +72,16 @@ public class DepartmentController {
         }
         return result;
     }
+    
+     public List<Department> getById(String key){
+        List result=ddao.getData(key, true);
+        return result;
+    }
+     
+     public List<Department> seachBy(String key){
+        List result=ddao.getData(key, false);
+        return result;
+     }
 }
 
 
