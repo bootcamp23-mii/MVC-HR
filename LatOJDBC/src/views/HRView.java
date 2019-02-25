@@ -19,7 +19,6 @@ import tools.DBConnection;
  * @author FES
  */
 public class HRView extends javax.swing.JFrame {
-
     List<Region> listdata = new ArrayList<Region>();
     int x = 0;
     private DefaultTableModel model;
@@ -32,7 +31,7 @@ public class HRView extends javax.swing.JFrame {
     public HRView() {
         initComponents();
         judultabel();
-        TampilData();
+        TampilData("",false);
     }
 
     private void judultabel() {
@@ -42,9 +41,9 @@ public class HRView extends javax.swing.JFrame {
         jTable2.setModel(model);
     }
 
-    private void TampilData() {
+    private void TampilData(String i, boolean j) {
         model.setRowCount(0);
-        listdata = rc.getById("", false);
+        listdata = rc.getById(i, j);
 //        for (Region region : rc.getById("",false)) {
 //            Object[] data = new Object[2];
 //            data [0]= region.getId();
@@ -124,7 +123,7 @@ public class HRView extends javax.swing.JFrame {
         searchPanel = new javax.swing.JPanel();
         searchLabel = new javax.swing.JLabel();
         searchTextField = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cbSearch = new javax.swing.JCheckBox();
         bSearch = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -381,15 +380,20 @@ public class HRView extends javax.swing.JFrame {
         searchPanel.add(searchLabel);
         searchPanel.add(searchTextField);
 
-        jCheckBox1.setText("by Id");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbSearch.setText("by Id");
+        cbSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cbSearchActionPerformed(evt);
             }
         });
-        searchPanel.add(jCheckBox1);
+        searchPanel.add(cbSearch);
 
         bSearch.setText("search");
+        bSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bSearchActionPerformed(evt);
+            }
+        });
         searchPanel.add(bSearch);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -503,9 +507,9 @@ public class HRView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void cbSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_cbSearchActionPerformed
 
     private void bClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bClearActionPerformed
         // TODO add your handling code here:
@@ -522,7 +526,7 @@ public class HRView extends javax.swing.JFrame {
         }else{
             
             rc.insert(id, nama);
-            TampilData();
+            TampilData("",false);
             JOptionPane.showMessageDialog(null, "Data Berhasil ditambahkan!");
         }
     }//GEN-LAST:event_bInsertActionPerformed
@@ -533,6 +537,20 @@ public class HRView extends javax.swing.JFrame {
             bDelete.setEnabled(true);
         }
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void bSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSearchActionPerformed
+        // TODO add your handling code here:
+        String key = searchTextField.getText().toString().trim();
+        boolean cb = cbSearch.isSelected();
+        if(!cb){
+           rc.searchBy(key, cb);
+           TampilData(key, cb);
+        }else{
+           rc.getById(key, cb);
+           TampilData(key, cb);
+        }       
+        
+    }//GEN-LAST:event_bSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -576,13 +594,13 @@ public class HRView extends javax.swing.JFrame {
     private javax.swing.JButton bInsert;
     private javax.swing.JButton bSearch;
     private javax.swing.JPanel buttonPanel;
+    private javax.swing.JCheckBox cbSearch;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JLabel jLabel1;

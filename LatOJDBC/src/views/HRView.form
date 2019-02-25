@@ -574,18 +574,21 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="searchTextField">
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                    <Component class="javax.swing.JCheckBox" name="cbSearch">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="by Id"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSearchActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="bSearch">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="search"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bSearchActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
