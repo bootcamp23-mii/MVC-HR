@@ -81,8 +81,8 @@ public class LocationDAO {
     /**
      * This method use to save or insert some row to locations table
      *
-     * @param l
-     * @param isInsert
+     * @param l are the value of what you want to input
+     * @param isInsert are the value of boolean that to separate insert and update
      * @return
      */
     public boolean save(Location l, boolean isInsert) {
