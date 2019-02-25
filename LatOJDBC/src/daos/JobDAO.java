@@ -20,14 +20,18 @@ import tools.DBConnection;
 public class JobDAO {
 
     private Connection connection;
+
     public JobDAO(Connection connection) {
-    this.connection = connection;
+        this.connection = connection;
     }
 
     /**
      * DAO untuk menampilkan data
-     * @param keyword kata kunci untuk pencarian data, bisa dikosongkan apabila ingin menampilkan keseluruhan data
-     * @param isGetById menentukan jenis getData true = by id, false = search by key atau getAll
+     *
+     * @param keyword kata kunci untuk pencarian data, bisa dikosongkan apabila
+     * ingin menampilkan keseluruhan data
+     * @param isGetById menentukan jenis getData true = by id, false = search by
+     * key atau getAll
      * @return List
      */
     public List<Job> getData(Object keyword, boolean isGetById) {
@@ -51,26 +55,26 @@ public class JobDAO {
         return listJob;
     }
 
-       
     /**
-     * Fungsi ini digunakan untuk melakukan insert atau update data. Apabila parameter isInsert = true,
-     * maka fungsi ini akan melakukan insert data, apabila false, maka update data
-     * @param r 
-     * @param isInsert 
-     * @return 
+     * Fungsi ini digunakan untuk melakukan insert atau update data. Apabila
+     * parameter isInsert = true, maka fungsi ini akan melakukan insert data,
+     * apabila false, maka update data
+     *
+     * @param r
+     * @param isInsert
+     * @return
      */
-     public boolean save(Job r, boolean isInsert) {
+    public boolean save(Job r, boolean isInsert) {
         boolean result = false;
         String query = "";
         if (isInsert) {
             query = "INSERT INTO jobs(job_title, min_salary, max_salary, job_id) VALUES(?,?,?,?)";
-        }
-        else{
+        } else {
             query = "UPDATE Jobs SET job_title = ?, min_salary = ?, max_salary=? WHERE job_id=? ";
         }
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            
+
             preparedStatement.setString(1, r.getName());
             preparedStatement.setInt(2, r.getMin_salary());
             preparedStatement.setInt(3, r.getMax_salary());
@@ -82,15 +86,16 @@ public class JobDAO {
         }
         return result;
     }
-     
+
     /**
      * fungsi untuk melakukan delete data
+     *
      * @param id id yang akan dihapus datanya
-     * @return 
-     */ 
+     * @return
+     */
     public boolean delete(String id) {
         boolean result = false;
-        String query = "DELETE FROM JOBS WHERE JOB_ID like'%" + id + "%'";
+        String query = "DELETE FROM JOBS WHERE JOB_ID ='" + id + "'";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.executeQuery();
