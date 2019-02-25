@@ -36,14 +36,14 @@ public class CountryDAO {
         if (isGetById) {
             query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID = " + keyword;
         } else {
-            query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID like '%" + keyword + "%' or COUNTRY_NAME like '%" + keyword + "%'";
+            query = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID like '%" + keyword + "%' or COUNTRY_NAME like '%" + keyword + "%'" + "%' or REGION_ID like '%" + keyword + "%'";
         }
 
         try {
             PreparedStatement prepareStatment = connection.prepareStatement(query);
             ResultSet resultSet = prepareStatment.executeQuery();
             while (resultSet.next()) {
-                listCountry.add(new Country(resultSet.getString(1), resultSet.getString(2)));
+                listCountry.add(new Country(resultSet.getString(1), resultSet.getString(2), resultSet.getInt(3)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,12 +80,12 @@ public class CountryDAO {
      * @param country_id
      * @return 
      */
-    public boolean delete(int country_id){
+    public boolean delete(String country_id){
         boolean result = false;
         String query = "DELETE FROM COUNTRIES WHERE COUNTRY_ID = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);            
-            preparedStatement.setInt(1, country_id);
+            preparedStatement.setString(1, country_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             result = true;
         } catch (Exception e) {

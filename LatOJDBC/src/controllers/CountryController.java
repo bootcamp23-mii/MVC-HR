@@ -33,7 +33,7 @@ public class CountryController {
     
     public String delete(String country_id){
         String result="";
-        if (cdao.delete(country_id)) {
+          if (cdao.delete(country_id)) {
             result="OK! Data berhasil dihapus.";
         } else {
             result="OOPS! data gagal dihapus.";
@@ -43,7 +43,6 @@ public class CountryController {
     
     public String update(String country_id, String country_name, String region_id){
         String result="";
-        //if (cdao.save(new Country(country_id, country_name, Integer.parseInt(region_id), false))){
         if (cdao.save(new Country(country_id, country_name, Integer.parseInt(region_id)), true)) {
             result="OK! Data berhasil disimpan.";
         } else {

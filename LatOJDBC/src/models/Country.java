@@ -17,12 +17,13 @@ public class Country {
     public Country() {
         
     }
-    
-    public Country(String country_id, String country_name) {
+
+    public Country(String country_id, String country_name, int region_id) {
         this.country_id = country_id;
         this.country_name = country_name;
+        this.region_id = region_id;
     }
-
+    
     public String getCountry_id() {
         return country_id;
     }
@@ -47,6 +48,4 @@ public class Country {
         this.region_id = region_id;
     }
 
-    
-    
 }
